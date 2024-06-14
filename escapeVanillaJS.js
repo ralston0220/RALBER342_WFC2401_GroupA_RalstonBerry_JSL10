@@ -21,10 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 🪲 Bug: Asynchronous function ?
     document.getElementById("solveRoom3").addEventListener("click", () => {
+        // fetches this file from the server that has the directions
         fetch('directions.json') 
+            // converts this file into an object javascript can use
             .then(response => response.json())
+            // Take the directions we got, and give them to the navigateLabyrinth function to process
             .then(directions => {
                 navigateLabyrinth(directions)
+            // When navigateLabyrinth function is done, take its message and put it inside the room3Result element on the webpage
                     .then(message => {
                         // 🪲 Bug: Incorrect method
                         document.getElementById("room3Result").innerHTML = message;
@@ -35,6 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function findMostRecentBook(books) {
     // 🪲 Bug: Logic error
+    // uses reduce to find the most recent book by comparing the dates of two books and if the current books
+    // date is is newer then this book is chosen otherwise choose the next newer book in the list 
     return books.reduce((mostRecent, book) => new Date(book.published) > new Date(mostRecent.published) ? book : mostRecent);
 }
 
