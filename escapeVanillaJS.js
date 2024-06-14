@@ -52,6 +52,15 @@ function findIntersection(setA, setB) {
     return intersection;
 }
 
+
+
+
+
+
+
+
+
+
 async function navigateLabyrinth(directions) {
     for (let direction of directions) {
         // 🪲 Bug: No delay
