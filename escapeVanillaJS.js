@@ -44,6 +44,8 @@ function findMostRecentBook(books) {
     return books.reduce((mostRecent, book) => new Date(book.published) > new Date(mostRecent.published) ? book : mostRecent);
 }
 
+// this function finds commonalities between the two set by comparing them with eachother and return a new set
+// named intersection with all the things they have in common
 function findIntersection(setA, setB) {
     // 🪲 Bug: Incorrect logic
     const intersection = new Set([...setA,...setB].filter(concept =>  setB.has(concept))); 
